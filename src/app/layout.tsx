@@ -10,13 +10,15 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "BOI Impact Intelligence Portal | Bank of Industry",
+  title: {
+    default: "BOI Impact Intelligence",
+    template: "%s | BOI Impact Intelligence",
+  },
   description:
-    "Development finance, portfolio and impact intelligence platform for Bank of Industry executives and development partners.",
+    "Private development-finance analytics and impact intelligence platform.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
     shortcut: "/favicon.ico",

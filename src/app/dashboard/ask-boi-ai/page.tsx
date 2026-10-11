@@ -1,28 +1,12 @@
-"use client";
+import { Metadata } from "next";
+import AskBOIAIView from "./AskBOIAIView";
 
-import React from "react";
-import { useDashboardFilter } from "@/context/DashboardFilterContext";
-import { AskBOIAIWorkspace } from "@/components/assistant/AskBOIAIWorkspace";
-import { getPersonaRole } from "@/types/dataset";
+export const metadata: Metadata = {
+  title: "Ask BOI AI",
+  description:
+    "Interactive development finance AI analyst — Deterministic query parsing, evidence retrieval, and executive synthesis.",
+};
 
 export default function AskBOIAIPage() {
-  const {
-    filteredRecords,
-    allRecords,
-    filters,
-    persona,
-  } = useDashboardFilter();
-
-  const personaRole = getPersonaRole(persona);
-
-  return (
-    <div className="space-y-4">
-      <AskBOIAIWorkspace
-        records={filteredRecords}
-        allRecords={allRecords}
-        filters={filters}
-        persona={personaRole}
-      />
-    </div>
-  );
+  return <AskBOIAIView />;
 }

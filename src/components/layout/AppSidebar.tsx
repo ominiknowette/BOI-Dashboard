@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
@@ -189,24 +190,49 @@ export function AppSidebar({
         {/* Top Header & Navigation Section (scrollable if needed) */}
         <div className="flex-1 min-h-0 flex flex-col overflow-y-auto">
           {/* BOI Brand Header */}
-          <div
-            className={`flex items-center mb-6 shrink-0 ${
-              isSidebarCollapsed
-                ? "justify-center"
-                : "justify-between px-1"
-            }`}
-          >
-            <div className="flex items-center gap-3 min-w-0">
+          {isSidebarCollapsed ? (
+            /* Collapsed State: Centered 40px emblem with expand toggle below */
+            <div className="flex flex-col items-center gap-3 mb-6 shrink-0">
               <div
-                className="w-10 h-10 rounded-tile bg-dark-boi-green flex items-center justify-center text-white shadow-sm shrink-0"
-                title="Bank of Industry Impact Portal"
+                className="w-10 h-10 shrink-0 relative flex items-center justify-center"
+                title="Bank of Industry Impact Intelligence"
               >
-                <span className="font-bold text-lg font-sans tracking-tight">
-                  B
-                </span>
+                <Image
+                  src="/brand/boi-impact-mark-transparent.png"
+                  alt="Bank of Industry Impact Intelligence"
+                  width={40}
+                  height={40}
+                  priority
+                  className="w-10 h-10 object-contain select-none"
+                />
               </div>
 
-              {!isSidebarCollapsed && (
+              {/* Desktop Expand Toggle */}
+              <button
+                type="button"
+                onClick={toggleSidebarCollapsed}
+                className="hidden lg:flex p-1.5 text-ink-muted hover:text-ink hover:bg-[#F2F4F7] rounded-lg transition-colors"
+                title="Expand sidebar"
+                aria-label="Expand sidebar"
+              >
+                <PanelLeftOpen className="w-4 h-4 text-ink-muted" />
+              </button>
+            </div>
+          ) : (
+            /* Expanded & Mobile State: 44px emblem with dual-line typography and controls */
+            <div className="flex items-center justify-between px-1 mb-6 shrink-0">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-11 h-11 shrink-0 relative flex items-center justify-center">
+                  <Image
+                    src="/brand/boi-impact-mark-transparent.png"
+                    alt="Bank of Industry"
+                    width={44}
+                    height={44}
+                    priority
+                    className="w-11 h-11 object-contain select-none"
+                  />
+                </div>
+
                 <div className="min-w-0">
                   <h1 className="font-bold text-sm text-ink leading-tight tracking-tight truncate">
                     Bank of Industry
@@ -215,40 +241,32 @@ export function AppSidebar({
                     Impact Intelligence
                   </p>
                 </div>
-              )}
-            </div>
+              </div>
 
-            {/* Desktop Collapse / Expand Toggle */}
-            <button
-              type="button"
-              onClick={toggleSidebarCollapsed}
-              className={`hidden lg:flex p-1.5 text-ink-muted hover:text-ink hover:bg-[#F2F4F7] rounded-lg transition-colors ${
-                isSidebarCollapsed ? "mt-3" : ""
-              }`}
-              title={isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-              aria-label={
-                isSidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"
-              }
-            >
-              {isSidebarCollapsed ? (
-                <PanelLeftOpen className="w-4 h-4 text-ink-muted" />
-              ) : (
-                <PanelLeftClose className="w-4 h-4 text-ink-muted" />
-              )}
-            </button>
-
-            {/* Mobile Close Button */}
-            {onCloseMobile && (
+              {/* Desktop Collapse Toggle */}
               <button
                 type="button"
-                onClick={onCloseMobile}
-                className="lg:hidden p-1.5 text-ink-muted hover:text-ink hover:bg-[#F2F4F7] rounded-lg"
-                aria-label="Close sidebar"
+                onClick={toggleSidebarCollapsed}
+                className="hidden lg:flex p-1.5 text-ink-muted hover:text-ink hover:bg-[#F2F4F7] rounded-lg transition-colors"
+                title="Collapse sidebar"
+                aria-label="Collapse sidebar"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <PanelLeftClose className="w-4 h-4 text-ink-muted" />
               </button>
-            )}
-          </div>
+
+              {/* Mobile Close Button */}
+              {onCloseMobile && (
+                <button
+                  type="button"
+                  onClick={onCloseMobile}
+                  className="lg:hidden p-1.5 text-ink-muted hover:text-ink hover:bg-[#F2F4F7] rounded-lg"
+                  aria-label="Close sidebar"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+              )}
+            </div>
+          )}
 
           {/* Navigation Items */}
           <nav className="space-y-5 flex-1" aria-label="Main Navigation">
