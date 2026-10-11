@@ -9,41 +9,34 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        boi: {
-          green: "#0B6B4F",
-          "green-deep": "#0B4738",
-          ink: "#17352D",
-          gold: "#C59A32",
-          "gold-light": "#F8F3E6",
-          bg: "#F5F7F5",
-          surface: "#FFFFFF",
-          text: "#17201C",
-          "text-muted": "#667169",
-          border: "#DDE5DF",
-          "border-subtle": "#EBEFEA",
-          selected: "#EDF5F1",
-          error: "#B33A3A",
-          warning: "#A66B13",
-        },
+        canvas: "#EAECF0",
+        surface: "#FFFFFF",
+        ink: "#031312",
+        "ink-muted": "#6B7471",
+        "ink-subtle": "#9AA3A0",
+        border: "#DDE3E0",
+        "border-subtle": "#ECEFEF",
+        "primary-green": "#038E46",
+        "deep-green": "#185744",
+        "dark-boi-green": "#064B34",
+        "soft-green": "#EAF5EE",
+        "gold-accent": "#C8A34A",
+        "warning-amber": "#C58B32",
+        "risk-red": "#D94A4A",
       },
       fontFamily: {
-        sans: ["var(--font-source-sans)", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["var(--font-source-serif)", "Georgia", "serif"],
+        sans: ["var(--font-manrope)", "system-ui", "-apple-system", "sans-serif"],
       },
       borderRadius: {
-        xs: "6px",
-        sm: "8px",
-        md: "10px",
-        lg: "12px",
-        xl: "14px",
-      },
-      maxWidth: {
-        canvas: "1440px",
+        sidebar: "22px",
+        card: "18px",
+        tile: "12px",
+        control: "8px",
       },
       boxShadow: {
-        subtle: "0 1px 3px 0 rgba(11, 71, 56, 0.04), 0 1px 2px -1px rgba(11, 71, 56, 0.04)",
-        dropdown: "0 4px 16px -2px rgba(11, 71, 56, 0.08), 0 2px 6px -1px rgba(11, 71, 56, 0.04)",
-        dialog: "0 12px 32px -4px rgba(11, 71, 56, 0.12), 0 4px 12px -2px rgba(11, 71, 56, 0.06)",
+        card: "0 1px 3px 0 rgba(3, 19, 18, 0.04), 0 1px 2px -1px rgba(3, 19, 18, 0.02)",
+        sidebar: "0 4px 20px -2px rgba(3, 19, 18, 0.03)",
+        dropdown: "0 8px 24px -4px rgba(3, 19, 18, 0.08)",
       },
     },
   },
@@ -51,3 +44,4 @@ const config: Config = {
 };
 
 export default config;
+

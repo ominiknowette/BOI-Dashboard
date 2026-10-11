@@ -11,6 +11,7 @@ import {
   SegmentSummary,
   StateSummary,
   StrategicTheme,
+  StrategicThemeSummary,
   TimeSeriesPoint,
   ZoneSummary,
 } from "@/types/dataset";
@@ -324,12 +325,17 @@ export function aggregateTimeSeries(
   records: FacilityRecord[],
   granularity: "year" | "quarter" = "quarter"
 ): TimeSeriesPoint[] {
-  const pointMap = new Map<string, { disbursed: number; jobs: number; enterprises: number }>();
+  const pointMap = new Map<
+    string,
+    { disbursed: number; approved: number; outstanding: number; jobs: number; enterprises: number }
+  >();
 
   for (const r of records) {
     const key = granularity === "year" ? r.year.toString() : r.quarter;
-    const cur = pointMap.get(key) || { disbursed: 0, jobs: 0, enterprises: 0 };
+    const cur = pointMap.get(key) || { disbursed: 0, approved: 0, outstanding: 0, jobs: 0, enterprises: 0 };
     cur.disbursed += r.amountDisbursed;
+    cur.approved += r.amountApproved;
+    cur.outstanding += r.outstandingAmount;
     cur.jobs += r.jobsSupported;
     cur.enterprises += 1;
     pointMap.set(key, cur);
@@ -374,7 +380,7 @@ export function aggregatePortfolioStatus(records: FacilityRecord[]): PortfolioSt
 
 export function aggregateByStrategicTheme(
   records: FacilityRecord[]
-): { theme: StrategicTheme; disbursed: number; enterprises: number; jobs: number }[] {
+): StrategicThemeSummary[] {
   const themes: StrategicTheme[] = [
     "MSMEs",
     "Gender Inclusion",

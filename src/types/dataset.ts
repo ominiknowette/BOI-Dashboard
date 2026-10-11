@@ -164,6 +164,8 @@ export interface SegmentSummary {
 export interface TimeSeriesPoint {
   period: string; // e.g. "2023", "2024", or "2024-Q1"
   disbursed: number;
+  approved: number;
+  outstanding: number;
   jobs: number;
   enterprises: number;
 }
@@ -174,4 +176,11 @@ export interface PortfolioStatusSummary {
   outstanding: number;
   count: number;
   ratio: number;
+}
+
+export interface StrategicThemeSummary {
+  theme: StrategicTheme;
+  disbursed: number;
+  enterprises: number;
+  jobs: number;
 }

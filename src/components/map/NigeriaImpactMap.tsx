@@ -12,6 +12,7 @@ interface NigeriaImpactMapProps {
   selectedState?: string;
   onSelectState: (state: string) => void;
   selectedZone?: GeopoliticalZone | "all";
+  hideTitle?: boolean;
 }
 
 export function NigeriaImpactMap({
@@ -20,6 +21,7 @@ export function NigeriaImpactMap({
   selectedState = "all",
   onSelectState,
   selectedZone = "all",
+  hideTitle = false,
 }: NigeriaImpactMapProps) {
   const [viewMode, setViewMode] = useState<"map" | "table">("map");
   const [hoveredStateCode, setHoveredStateCode] = useState<string | null>(null);
@@ -95,13 +97,15 @@ export function NigeriaImpactMap({
   return (
     <div className="bg-white border border-[#DDE5DF] rounded-md shadow-sm overflow-hidden flex flex-col h-full">
       {/* Top Header & View Toggle */}
-      <div className="px-5 py-3.5 border-b border-[#DDE5DF] bg-[#FAFBF9] flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <MapPin className="w-4 h-4 text-[#0B6B4F]" aria-hidden="true" />
-          <h3 className="text-sm font-semibold text-[#17201C] uppercase tracking-wide">
-            Sub-National Geographic Allocation &amp; Territorial Drill-Down
-          </h3>
-        </div>
+      <div className={`px-5 py-3 border-b border-[#DDE5DF] bg-[#FAFBF9] flex flex-wrap items-center ${hideTitle ? "justify-end" : "justify-between"} gap-3`}>
+        {!hideTitle && (
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-[#0B6B4F]" aria-hidden="true" />
+            <h3 className="text-sm font-semibold text-[#17201C] uppercase tracking-wide">
+              Sub-National Geographic Allocation &amp; Territorial Drill-Down
+            </h3>
+          </div>
+        )}
 
         <div className="flex items-center gap-2">
           <div className="inline-flex rounded-md border border-[#DDE5DF] bg-white p-0.5 text-xs">

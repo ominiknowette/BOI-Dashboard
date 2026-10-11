@@ -113,14 +113,14 @@ export function AskBOIAIWorkspace({
   return (
     <div className="space-y-6">
       {/* Workspace Header & Active Context Scope */}
-      <div className="bg-white border border-[#DDE5DF] rounded-md shadow-sm p-5">
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#DDE5DF]">
+      <div className="bg-white border border-border rounded-card shadow-card p-5">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-border/60">
           <div>
-            <h2 className="font-serif text-lg font-bold text-[#17201C] flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#0B6B4F]" aria-hidden="true" />
+            <h2 className="text-base font-bold text-ink flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary-green" aria-hidden="true" />
               Ask BOI AI — Portfolio Intelligence &amp; Natural Language Analytics
             </h2>
-            <p className="text-xs text-[#667169] mt-1">
+            <p className="text-xs text-ink-muted mt-0.5">
               Deterministic analytical reasoning against verified facility records. All responses cite exact evidence, calculations, and data provenance.
             </p>
           </div>
@@ -129,7 +129,7 @@ export function AskBOIAIWorkspace({
             <button
               type="button"
               onClick={handleClear}
-              className="inline-flex items-center gap-1.5 text-xs text-[#667169] hover:text-[#17201C] px-2.5 py-1 rounded border border-[#DDE5DF] hover:bg-[#FAFBF9] transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs text-ink-muted hover:text-ink px-3 py-1.5 rounded-lg border border-border hover:bg-[#F2F4F7] transition-all font-semibold"
             >
               <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
               Reset Conversation
@@ -139,10 +139,10 @@ export function AskBOIAIWorkspace({
 
         {/* Active Filter Scope Notice */}
         <div className="mt-3.5 pt-1 flex flex-wrap items-center justify-between text-xs gap-2">
-          <div className="flex items-center gap-2 text-[#0B4738]">
-            <Filter className="w-3.5 h-3.5 text-[#0B6B4F]" aria-hidden="true" />
-            <span className="font-medium">Active Analysis Scope:</span>
-            <span className="tabular-nums font-bold text-[#17201C]">
+          <div className="flex items-center gap-2 text-deep-green">
+            <Filter className="w-3.5 h-3.5 text-primary-green" aria-hidden="true" />
+            <span className="font-semibold">Active Analysis Scope:</span>
+            <span className="tabular-nums font-bold text-ink">
               {formatNumber(records.length)} records ({records.length === allRecords.length ? "Full Portfolio" : "Filtered Subset"})
             </span>
           </div>
@@ -152,13 +152,13 @@ export function AskBOIAIWorkspace({
               activeFilterList.map((f, i) => (
                 <span
                   key={i}
-                  className="bg-[#EDF5F1] text-[#0B4738] border border-[#DDE5DF] text-[11px] px-2 py-0.5 rounded font-medium"
+                  className="bg-soft-green text-deep-green border border-primary-green/30 text-[11px] px-2.5 py-0.5 rounded-full font-semibold"
                 >
                   {f}
                 </span>
               ))
             ) : (
-              <span className="text-[11px] text-[#667169]">
+              <span className="text-[11px] text-ink-muted font-medium">
                 National Scope: All 37 Territories &amp; 10 Sectors Active
               </span>
             )}
@@ -167,8 +167,8 @@ export function AskBOIAIWorkspace({
       </div>
 
       {/* Starter Shortcuts */}
-      <div className="bg-[#FAFBF9] border border-[#DDE5DF] rounded-md p-4">
-        <span className="text-[11px] font-semibold text-[#667169] uppercase tracking-wider block mb-2">
+      <div className="bg-white border border-border rounded-card p-4 shadow-card">
+        <span className="text-[11px] font-bold text-ink-muted uppercase tracking-wider block mb-2.5">
           Suggested Analytical Inquiries (Click to ask):
         </span>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

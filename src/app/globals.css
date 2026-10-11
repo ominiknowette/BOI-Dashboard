@@ -3,13 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --font-source-sans: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-source-serif: "Source Serif 4", Georgia, serif;
+  --font-manrope: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  background-color: #F5F7F5;
-  color: #17201C;
+  background-color: #EAECF0;
+  color: #031312;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,7 +21,7 @@ body {
 
 /* Institutional focus ring */
 *:focus-visible {
-  outline: 2px solid #0B6B4F;
+  outline: 2px solid #038E46;
   outline-offset: 2px;
 }
 
@@ -32,12 +31,13 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F5F7F5;
+  background: #EAECF0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DDE5DF;
+  background: #DDE3E0;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #667169;
+  background: #6B7471;
 }
+

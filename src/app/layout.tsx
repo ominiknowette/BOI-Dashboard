@@ -1,19 +1,12 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-source-sans",
+  variable: "--font-manrope",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  variable: "--font-source-serif",
-  display: "swap",
-  weight: ["600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -41,11 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sourceSans.variable} ${sourceSerif.variable}`}>
-      <body className="font-sans antialiased bg-boi-bg text-boi-text min-h-screen flex flex-col selection:bg-boi-selected selection:text-boi-green-deep">
+    <html lang="en" className={manrope.variable}>
+      <body className="font-sans antialiased bg-[#EAECF0] text-[#031312] min-h-screen selection:bg-[#EAF5EE] selection:text-[#185744]">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-boi-green focus:text-white focus:rounded-sm focus:shadow-md"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#038E46] focus:text-white focus:rounded-lg focus:shadow-md"
         >
           Skip to main content
         </a>
