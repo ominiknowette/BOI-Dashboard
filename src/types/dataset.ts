@@ -184,3 +184,6 @@ export interface StrategicThemeSummary {
   enterprises: number;
   jobs: number;
 }
+
+export type SyntheticRecord = FacilityRecord;
+export type TimeSeriesSummary = TimeSeriesPoint;
